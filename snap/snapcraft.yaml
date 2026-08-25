@@ -443,4 +443,63 @@ slots:
       read:
       - $SNAP/bin
       - $SNAP/mesa-2604
-      - $SNAP_DATA/kernel-gpu-2604
+
+  gbm-dl:
+    interface: gbm-driver-libs
+    compatibility: gbmbackend-(0..2)-arch64-ubuntu-2604
+    client-driver: dri_gbm.so
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/dri
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/gbm
+
+  gbm-dl32:
+    interface: gbm-driver-libs
+    compatibility: gbmbackend-(0..2)-arch64-ubuntu-2604
+    client-driver: dri_gbm.so
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu/dri
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu/gbm
+
+  egl-dl:
+    interface: egl-driver-libs
+    priority: 50
+    compatibility: egl-1-5-ubuntu-2604
+    icd-source:
+    - $SNAP/mesa-2604/usr/share/glvnd/egl_vendor.d/
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/dri
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu/dri
+
+  opengl-dl:
+    interface: opengl-driver-libs
+    compatibility: opengl-1-(0..5)-ubuntu-2604 OR opengl-2-(0..1)-ubuntu-2604 OR opengl-3-(0..3)-ubuntu-2604
+      OR opengl-4-(0..6)-ubuntu-2604
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/dri
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu/dri
+
+  opengles-dl:
+    interface: opengles-driver-libs
+    compatibility: opengles-1-(0..1)-ubuntu-2604 OR opengles-2-0-ubuntu-2604 OR opengles-3-(0..2)-ubuntu-2604
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/dri
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu/dri
+
+  vulkan-dl:
+    interface: vulkan-driver-libs
+    compatibility: vulkan-1-(0..5)-ubuntu-2604
+    icd-source:
+    - $SNAP/mesa-2604/usr/share/vulkan/icd.d/
+    implicit-layer-source:
+    - $SNAP/mesa-2604/usr/share/vulkan/implicit_layer.d/
+    library-source:
+    - $SNAP/mesa-2604/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}
+    - $SNAP/mesa-2604/usr/lib/i386-linux-gnu
