@@ -1,4 +1,19 @@
 {
+  "egl-driver-libs":{
+    "allow-installation": "true"
+  },
+  "gbm-driver-libs":{
+    "allow-installation": "true"
+  },
+  "opengl-driver-libs":{
+    "allow-installation": "true"
+  },
+  "opengles-driver-libs":{
+    "allow-installation": "true"
+  },
+  "vulkan-driver-libs":{
+    "allow-installation": "true"
+  },
   "wayland":{
     "allow-installation": "true"
   }
