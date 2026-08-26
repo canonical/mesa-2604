@@ -443,4 +443,3 @@ slots:
       read:
       - $SNAP/bin
       - $SNAP/mesa-2604
-      - $SNAP_DATA/kernel-gpu-2604
