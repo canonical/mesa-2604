@@ -432,21 +432,9 @@ parts:
       mkdir -p ${CRAFT_PART_INSTALL}/bin
       sed \
         -e "s/@ARCH_TRIPLETS@/${ARCH_TRIPLETS[*]}/" \
-        -e "s/@COMPONENT_SENTINEL@/kernel-gpu-2604-sentinel/" \
-        -e "s/@COMPONENT_MANGLER@/kernel-gpu-2604-provider-mangler/" \
         ${CRAFT_PART_SRC}/${SCRIPT}.in \
         > ${CRAFT_PART_INSTALL}/${SCRIPT}
       chmod 555 ${CRAFT_PART_INSTALL}/${SCRIPT}
-
-  component-monitor:
-    after: [file-list]
-    plugin: rust
-    source: component-monitor
-
-plugs:
-  kernel-gpu-2604:
-    interface: content
-    target: $SNAP/kernel-gpu-2604
 
 slots:
   gpu-2604:
@@ -455,16 +443,3 @@ slots:
       read:
       - $SNAP/bin
       - $SNAP/mesa-2604
-      - $SNAP_DATA/kernel-gpu-2604
-
-environment:
-  COMPONENT_INTERFACE: kernel-gpu-2604
-  COMPONENT_SENTINEL_PATH: ${SNAP}/kernel-gpu-2604/kernel-gpu-2604-sentinel
-  COMPONENT_TARGET: ${SNAP_DATA}/kernel-gpu-2604
-
-apps:
-  component-monitor:
-    daemon: simple
-    restart-condition: always
-    restart-delay: 3s
-    command: bin/component-monitor
