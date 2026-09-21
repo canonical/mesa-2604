@@ -44,7 +44,7 @@ jobs:
         SNAP_PATH: ${{ steps.build-snap.outputs.snap-path }}
       run: |
         sudo snap install --dangerous ${SNAP_PATH}
-        sudo snap install mir-test-tools --channel 24/stable
+        sudo snap install mir-test-tools --channel 26/stable
         sudo snap connect mir-test-tools:login-session-control
         sudo snap connect mir-test-tools:gpu-2604 mesa-2604
 
