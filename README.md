@@ -12,4 +12,4 @@ mir-quirks|Mir configuration for driver support|Mir specific
 
 ----
 
-For more information about the `gpu-2604` interface, see: [The gpu-2604 snap interface](https://ubuntu.com/frame/docs/the-gpu-2604-snap-interface) documentation.
+For more information about the `gpu-2604` interface, see: [How to use graphics in snaps](https://ubuntu.com/frame/docs/26/how-to/use-snap-graphics/) documentation.
