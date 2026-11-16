@@ -12,7 +12,7 @@ description: |
   a broader set of hardware without including the drivers in your snap, refer to the
   documentation below:
 
-  https://ubuntu.com/frame/docs/the-gpu-2604-snap-interface
+  https://ubuntu.com/frame/docs/26/how-to/use-snap-graphics/
 website: https://github.com/canonical/mesa-2604
 contact: https://github.com/canonical/mesa-2604/issues
 source-code: https://github.com/canonical/mesa-2604
